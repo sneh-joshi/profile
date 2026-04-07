@@ -77,7 +77,6 @@ export const profileData: ProfileData = {
         'Engineered microservices processing 4,000+ requests per minute while maintaining 99.70% SLO.',
         'Reduced onboarding workflows from hours to minutes through distributed system redesign.',
         'Optimized CI/CD pipelines reducing deployment time from ~40 minutes to under 15 minutes.',
-        'Integrated LLM-based answer generation layered on semantic retrieval pipelines using OpenAI APIs and LangChain.',
         'Implemented monitoring, alerting, and SLO tracking using Datadog and AWS CloudWatch.',
       ],
     },
