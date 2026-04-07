@@ -107,8 +107,6 @@ export default function ExperienceTimeline({ experience, education }: Experience
 
   return (
     <div className="htl">
-      <div className="htl__hint">Scroll the timeline horizontally to explore month/year milestones.</div>
-
       <div className="htl__rail-wrap" onWheel={onWheel}>
         <div className="htl__rail" ref={railRef} onScroll={onRailScroll}>
           {entries.map((entry) => (
