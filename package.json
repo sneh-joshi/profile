@@ -11,7 +11,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
-  "homepage": "https://snehjoshi.github.io/dev-profile",
+  "homepage": "https://sneh-joshi.github.io/profile",
   "dependencies": {
     "gh-pages": "^6.3.0",
     "pdfjs-dist": "^5.4.624",

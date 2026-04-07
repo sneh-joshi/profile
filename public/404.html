@@ -8,7 +8,7 @@
       // GitHub Pages SPA fallback
       // On 404, redirect to index.html preserving the path
       const path = window.location.pathname;
-      const repo = '/dev-profile';
+      const repo = '/profile';
       if (path.startsWith(repo)) {
         const query = '?p=' + encodeURIComponent(path.slice(repo.length) + window.location.search);
         window.location.replace(window.location.origin + repo + '/' + query + '#' + window.location.hash);

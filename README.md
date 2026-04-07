@@ -2,16 +2,15 @@
 
 Senior Full-Stack Engineer | Distributed Systems | AI Search
 
-Live: https://snehjoshi.github.io/dev-profile
+Live: https://sneh-joshi.github.io/profile
 
 ## Stack
 React 19 + TypeScript + Vite 7. No backend, all demos client-side. Deployed to GitHub Pages.
 
 ## Run Locally
 npm install && npm run dev
-Browse to http://localhost:5173/dev-profile/
+Browse to http://localhost:5173/profile/
 
 ## Deploy
-npm run deploy
-(Builds and publishes dist/ to gh-pages branch)
-Set repo Pages source to gh-pages branch.
+Push to `main` — GitHub Actions builds and deploys automatically.
+Or manually: `npm run deploy`
