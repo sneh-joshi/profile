@@ -1,0 +1,571 @@
+.docproc {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ── Document selector ── */
+.docproc__doc-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding: 10px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface-2);
+  cursor: pointer;
+  transition: border-color var(--transition), background var(--transition);
+  text-align: left;
+  min-width: 160px;
+}
+
+.docproc__doc-btn:hover {
+  border-color: var(--color-border-hover);
+}
+
+.docproc__doc-btn--active {
+  border-color: var(--color-accent);
+  background: var(--color-accent-muted);
+}
+
+.docproc__doc-pdf-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 32px;
+  background: #e53e3e;
+  border-radius: 3px;
+  margin-bottom: 4px;
+  position: relative;
+}
+
+.docproc__doc-pdf-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 6px 6px 0;
+  border-color: transparent rgba(255,255,255,0.35) transparent transparent;
+}
+
+.docproc__doc-pdf-label {
+  font-size: 8px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: #fff;
+  letter-spacing: 0.05em;
+  margin-top: 6px;
+}
+
+.docproc__doc-name {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-text);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 160px;
+}
+
+.docproc__doc-type {
+  font-size: 10px;
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+/* ── Body ── */
+.docproc__body {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+/* ── PDF wrap + page ── */
+.docproc__pdf-wrap {
+  position: relative;
+}
+
+/* Page shadow layers (stacked paper effect) */
+.docproc__pdf-wrap::before,
+.docproc__pdf-wrap::after {
+  content: '';
+  position: absolute;
+  border-radius: 4px;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.07);
+}
+
+.docproc__pdf-wrap::before {
+  inset: 4px -4px -4px 4px;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+.docproc__pdf-wrap::after {
+  inset: 8px -8px -8px 8px;
+  z-index: 0;
+  opacity: 0.3;
+}
+
+.pdf-page {
+  position: relative;
+  z-index: 1;
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 4px;
+  padding: 18px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow:
+    0 1px 3px rgba(0,0,0,0.08),
+    0 4px 16px rgba(0,0,0,0.06);
+  font-family: 'Georgia', 'Times New Roman', serif;
+  min-height: 280px;
+}
+
+/* PDF corner badge */
+.pdf-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #e53e3e;
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 2px 5px;
+  border-radius: 2px;
+}
+
+/* ── Invoice PDF ── */
+.pdf-invoice-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}
+
+.pdf-company {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  color: #0a0a1a;
+  letter-spacing: 0.05em;
+}
+
+.pdf-invoice-tag {
+  font-family: var(--font-display);
+  font-size: 9px;
+  font-weight: 700;
+  color: #5B5BD6;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 1.5px solid #5B5BD6;
+  border-radius: 3px;
+  padding: 1px 6px;
+  margin-top: 1px;
+  margin-right: 22px;
+}
+
+.pdf-invoice-num {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 2px;
+}
+
+.pdf-amount-box {
+  margin-top: 6px;
+  background: #f7f6f1;
+  border: 1px solid rgba(0,0,0,0.07);
+  border-radius: 4px;
+  padding: 8px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pdf-amount-label {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.pdf-amount {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+/* ── Contract PDF ── */
+.pdf-page--contract {
+  gap: 7px;
+}
+
+.pdf-contract-seal {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 0;
+  opacity: 0.5;
+}
+
+.pdf-contract-title {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  color: #0a0a1a;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.pdf-contract-ref {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: #999;
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+.pdf-contract-body {
+  font-size: 9.5px;
+  color: #555;
+  line-height: 1.55;
+  font-style: italic;
+}
+
+/* ── Expense PDF ── */
+.pdf-expense-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}
+
+.pdf-expense-title {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  color: #0a0a1a;
+  letter-spacing: 0.06em;
+}
+
+.pdf-expense-period {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: #888;
+  font-weight: 600;
+  margin-right: 22px;
+}
+
+/* ── Shared PDF elements ── */
+.pdf-rule {
+  height: 1px;
+  background: rgba(0,0,0,0.1);
+  border: none;
+  margin: 2px 0;
+}
+
+.pdf-rule--dashed {
+  background: none;
+  border-top: 1px dashed rgba(0,0,0,0.15);
+}
+
+.pdf-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pdf-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.pdf-row--total {
+  border-top: 1px solid rgba(0,0,0,0.08);
+  padding-top: 4px;
+  margin-top: 2px;
+}
+
+.pdf-lbl {
+  color: #888;
+  font-family: var(--font-sans);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.pdf-val {
+  color: #1a1a2e;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  text-align: right;
+}
+
+.pdf-val--bold {
+  font-weight: 700;
+  font-size: 11px;
+}
+
+/* ── Signature block ── */
+.pdf-sig-block {
+  margin-top: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.pdf-sig-label {
+  font-family: var(--font-sans);
+  font-size: 8.5px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 2px;
+}
+
+.pdf-sig-svg {
+  width: 120px;
+  height: 34px;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.pdf-sig-name {
+  font-family: 'Georgia', serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: #1a1a2e;
+  letter-spacing: 0.01em;
+}
+
+.pdf-sig-title-text {
+  font-family: var(--font-sans);
+  font-size: 8.5px;
+  color: #888;
+}
+
+.pdf-sig-conf {
+  margin-top: 4px;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  color: #e07b39;
+  background: rgba(247, 107, 21, 0.06);
+  border: 1px solid rgba(247, 107, 21, 0.18);
+  border-radius: 3px;
+  padding: 2px 6px;
+  display: inline-block;
+}
+
+/* ── Pipeline ── */
+.docproc__pipeline {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.docproc__run-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.docproc__run-btn {
+  padding: 9px 20px;
+  border-radius: var(--radius);
+  border: 1.5px solid var(--color-accent);
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font-display);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--transition);
+  letter-spacing: 0.01em;
+}
+
+.docproc__run-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.docproc__run-btn:not(:disabled):hover {
+  background: #4a4ac8;
+}
+
+.docproc__status {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.docproc__status--warn {
+  color: var(--color-warning);
+  font-weight: 600;
+}
+
+/* ── Fields ── */
+.docproc__fields-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-dim);
+  margin-bottom: 6px;
+}
+
+.docproc__fields-table {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.docproc__field {
+  display: grid;
+  grid-template-columns: 130px 1fr 50px auto;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: var(--radius);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  animation: fieldIn 360ms var(--ease-spring) both;
+}
+
+.docproc__field--low {
+  border-color: rgba(247, 107, 21, 0.28);
+  background: rgba(247, 107, 21, 0.04);
+}
+
+@keyframes fieldIn {
+  from { opacity: 0; transform: translateX(-12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.docproc__field-key {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.docproc__field-val {
+  font-size: 12.5px;
+  color: var(--color-text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.docproc__conf {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.docproc__conf--ok  { color: var(--color-success); }
+.docproc__conf--low { color: var(--color-warning); }
+
+/* ── Review actions ── */
+.docproc__actions {
+  display: flex;
+  gap: 4px;
+}
+
+.docproc__action {
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius);
+  border: none;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.docproc__action--approve {
+  background: rgba(48, 164, 108, 0.12);
+  color: var(--color-success);
+}
+
+.docproc__action--approve:hover { background: rgba(48, 164, 108, 0.24); }
+
+.docproc__action--reject {
+  background: rgba(229, 72, 77, 0.1);
+  color: var(--color-error);
+}
+
+.docproc__action--reject:hover { background: rgba(229, 72, 77, 0.22); }
+
+.docproc__decision {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.docproc__decision--approved {
+  color: var(--color-success);
+  background: rgba(48, 164, 108, 0.1);
+}
+
+.docproc__decision--rejected {
+  color: var(--color-error);
+  background: rgba(229, 72, 77, 0.1);
+}
+
+.docproc__auto {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-text-dim);
+  white-space: nowrap;
+}
+
+/* ── Responsive ── */
+@media (max-width: 700px) {
+  .docproc__body {
+    grid-template-columns: 1fr;
+  }
+
+  .docproc__field {
+    grid-template-columns: 110px 1fr 44px auto;
+    gap: 6px;
+  }
+}
+
+/* ── Selector row ── */
+.docproc__selector {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}

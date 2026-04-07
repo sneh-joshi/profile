@@ -1,0 +1,267 @@
+.gh-activity {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+/* Header */
+.gh-activity__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--color-border);
+}
+.gh-activity__header-left {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.gh-activity__label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+.gh-activity__fetched {
+  font-size: 10px;
+  font-family: var(--font-mono);
+  color: var(--color-text-dim);
+}
+.gh-activity__link {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: var(--color-accent);
+  opacity: 0.75;
+  transition: opacity var(--transition);
+}
+.gh-activity__link:hover { opacity: 1; }
+
+/* Feed */
+.gh-feed {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+.gh-feed__row {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  padding: 11px 18px;
+  border-bottom: 1px solid rgba(42,42,42,0.7);
+  transition: background var(--transition);
+}
+.gh-feed__row:last-child { border-bottom: none; }
+.gh-feed__row:hover { background: var(--color-surface-2); }
+
+/* Badge */
+.gh-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  min-width: 82px;
+  justify-content: center;
+}
+.gh-badge--push   { background: rgba(74,158,255,0.10); color: #6ab4ff; }
+.gh-badge--merge  { background: rgba(130,80,255,0.10); color: #a78bfa; }
+.gh-badge--pr     { background: rgba(76,175,136,0.10); color: var(--color-success); }
+.gh-badge--branch { background: rgba(230,168,23,0.10); color: var(--color-warning); }
+.gh-badge--repo   { background: rgba(76,175,136,0.10); color: var(--color-success); }
+.gh-badge__icon { font-size: 9px; opacity: 0.85; }
+
+/* Row body */
+.gh-feed__body {
+  flex: 1;
+  min-width: 0;
+}
+.gh-feed__desc {
+  display: block;
+  font-size: 12.5px;
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color var(--transition);
+}
+.gh-feed__desc:hover { color: var(--color-accent); opacity: 1; }
+.gh-feed__meta {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 3px;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: var(--color-text-dim);
+}
+.gh-feed__repo   { color: var(--color-text-muted); }
+.gh-feed__branch { color: var(--color-warning); opacity: 0.8; }
+.gh-sep          { color: var(--color-text-dim); }
+
+/* Empty */
+.gh-feed__empty {
+  padding: 20px 18px;
+  font-size: 12px;
+  font-family: var(--font-mono);
+  color: var(--color-text-dim);
+}
+
+/* Skeleton */
+.gh-skeleton {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 18px;
+  border-bottom: 1px solid rgba(42,42,42,0.5);
+}
+.gh-skeleton:last-child { border-bottom: none; }
+.gh-skeleton__badge {
+  width: 82px;
+  height: 20px;
+  background: var(--color-surface-2);
+  border-radius: 4px;
+  flex-shrink: 0;
+  animation: skel-pulse 1.5s ease-in-out infinite;
+}
+.gh-skeleton__line {
+  height: 12px;
+  background: var(--color-surface-2);
+  border-radius: 3px;
+  animation: skel-pulse 1.5s ease-in-out infinite;
+}
+@keyframes skel-pulse {
+  0%, 100% { opacity: 0.35; }
+  50%       { opacity: 0.75; }
+}
+
+.gh-activity__link:hover { opacity: 1; }
+
+/* Feed */
+.gh-feed {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.gh-feed__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--color-border);
+  transition: background var(--transition);
+}
+
+.gh-feed__item:last-child { border-bottom: none; }
+.gh-feed__item:hover { background: var(--color-surface); }
+
+.gh-feed__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  min-width: 70px;
+  justify-content: center;
+}
+
+.gh-feed__badge--commit  { background: rgba(74,158,255,0.12); color: var(--color-accent); }
+.gh-feed__badge--repo    { background: rgba(76,175,136,0.12); color: var(--color-success); }
+.gh-feed__badge--star    { background: rgba(230,168,23,0.12); color: var(--color-warning); }
+
+.gh-feed__badge-icon { font-size: 8px; }
+
+.gh-feed__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.gh-feed__message {
+  display: block;
+  font-size: 13px;
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color var(--transition);
+}
+
+.gh-feed__message:hover { color: var(--color-accent); opacity: 1; }
+
+.gh-feed__meta {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 3px;
+}
+
+.gh-feed__repo {
+  font-size: 11px;
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  opacity: 0.7;
+}
+
+.gh-feed__branch {
+  font-size: 11px;
+  color: var(--color-text-dim);
+  font-family: var(--font-mono);
+}
+
+.gh-feed__dot {
+  font-size: 10px;
+  color: var(--color-text-dim);
+}
+
+.gh-feed__time {
+  font-size: 11px;
+  color: var(--color-text-dim);
+}
+
+/* Skeleton loader */
+.gh-feed--skeleton {
+  padding: 8px 0;
+}
+
+.gh-feed__skeleton-row {
+  height: 44px;
+  margin: 6px 20px;
+  border-radius: var(--radius);
+  background: linear-gradient(
+    90deg,
+    var(--color-surface) 25%,
+    var(--color-surface-2) 50%,
+    var(--color-surface) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.gh-feed__empty {
+  padding: 24px 20px;
+  font-size: 13px;
+  color: var(--color-text-dim);
+  font-family: var(--font-mono);
+}

@@ -1,0 +1,420 @@
+/* =========================================================
+   Rule Engine Demo — RuleEngineDemo.css
+   Prefix: red- (Rule Engine Demo)
+   ========================================================= */
+
+/* ---- Section ---- */
+.red-section {
+  padding: 4rem 2rem;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Inter', system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+.red-section__header {
+  max-width: 1200px;
+  margin: 0 auto 2.5rem;
+}
+
+.red-section__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.red-section__desc {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 680px;
+}
+
+/* ---- Grid ---- */
+.red-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .red-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Panel ---- */
+.red-panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.red-panel__title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.red-panel__count {
+  background: var(--color-surface-2);
+  color: var(--color-text-muted);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.1rem 0.55rem;
+  line-height: 1.6;
+}
+
+.red-panel__subtitle {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin: -0.5rem 0 0;
+}
+
+/* ---- Rule Cards ---- */
+.red-rules-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.red-rule-card {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.red-rule-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.red-rule-card__name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.red-rule-card__desc {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.red-rule-card__conditions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+
+.red-condition-op {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  margin-top: 0.1rem;
+}
+
+.red-condition-op strong {
+  color: var(--color-accent);
+}
+
+/* ---- Badge ---- */
+.red-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.red-badge--error {
+  background: rgba(224, 82, 82, 0.15);
+  color: var(--color-error);
+  border: 1px solid rgba(224, 82, 82, 0.3);
+}
+
+.red-badge--warning {
+  background: rgba(230, 168, 23, 0.15);
+  color: var(--color-warning);
+  border: 1px solid rgba(230, 168, 23, 0.3);
+}
+
+.red-badge--passed {
+  background: rgba(76, 175, 136, 0.15);
+  color: var(--color-success);
+  border: 1px solid rgba(76, 175, 136, 0.3);
+}
+
+/* ---- Code / Conditions ---- */
+.red-condition {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  font-size: 0.72rem;
+  background: rgba(108, 142, 247, 0.08);
+  color: var(--color-accent);
+  border: 1px solid rgba(108, 142, 247, 0.15);
+  border-radius: 4px;
+  padding: 0.15rem 0.45rem;
+  display: block;
+  width: fit-content;
+}
+
+.red-condition--fail {
+  background: rgba(224, 82, 82, 0.08);
+  color: var(--color-error);
+  border-color: rgba(224, 82, 82, 0.2);
+}
+
+/* ---- JSON Toggle ---- */
+.red-json-toggle {
+  align-self: flex-start;
+  margin-top: 0.25rem;
+  background: none;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: 0.72rem;
+  font-family: inherit;
+  padding: 0.25rem 0.65rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.red-json-toggle:hover {
+  color: var(--color-text);
+  border-color: var(--color-text-muted);
+}
+
+.red-json-block {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.7rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin: 0;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+/* ---- Input Panel ---- */
+.red-textarea {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.78rem;
+  line-height: 1.7;
+  background: var(--color-bg);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 0.875rem;
+  resize: vertical;
+  min-height: 220px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.15s;
+  caret-color: var(--color-accent);
+}
+
+.red-textarea:focus {
+  border-color: var(--color-accent);
+}
+
+.red-textarea--error {
+  border-color: var(--color-error);
+}
+
+.red-parse-error {
+  font-size: 0.78rem;
+  color: var(--color-error);
+  margin: -0.25rem 0 0;
+  line-height: 1.5;
+}
+
+.red-validate-btn {
+  align-self: flex-start;
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.6rem 1.5rem;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+}
+
+.red-validate-btn:hover {
+  opacity: 0.9;
+}
+
+.red-validate-btn:active {
+  transform: scale(0.97);
+}
+
+/* ---- Results Panel ---- */
+.red-results-panel {
+  /* inherits .red-panel */
+}
+
+.red-results-panel--empty {
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+.red-empty-state {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  text-align: center;
+  margin: 0;
+}
+
+/* ---- Summary Row ---- */
+.red-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.625rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.red-summary__item {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+}
+
+.red-summary__item--error {
+  background: rgba(224, 82, 82, 0.12);
+  color: var(--color-error);
+}
+
+.red-summary__item--warning {
+  background: rgba(230, 168, 23, 0.12);
+  color: var(--color-warning);
+}
+
+.red-summary__item--passed {
+  background: rgba(76, 175, 136, 0.12);
+  color: var(--color-success);
+}
+
+.red-summary__valid {
+  margin-left: auto;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+}
+
+.red-summary__valid--ok {
+  background: rgba(76, 175, 136, 0.15);
+  color: var(--color-success);
+  border: 1px solid rgba(76, 175, 136, 0.3);
+}
+
+.red-summary__valid--fail {
+  background: rgba(224, 82, 82, 0.15);
+  color: var(--color-error);
+  border: 1px solid rgba(224, 82, 82, 0.3);
+}
+
+/* ---- Results List ---- */
+.red-results-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.red-result-item {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 0.875rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  border-left-width: 3px;
+}
+
+.red-result-item--passed {
+  border-left-color: var(--color-success);
+}
+
+.red-result-item--error {
+  border-left-color: var(--color-error);
+}
+
+.red-result-item--warning {
+  border-left-color: var(--color-warning);
+}
+
+.red-result-item__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.red-result-item__name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.red-result-item__message {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.red-result-item__failed {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+
+.red-result-item__failed-label {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
