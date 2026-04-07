@@ -112,7 +112,7 @@ export const profileData: ProfileData = {
     {
       degree: 'Bachelor of Computer Engineering',
       school: 'Gujarat Technological University',
-      period: '2013',
+      period: 'May 2013',
     },
   ],
 }
