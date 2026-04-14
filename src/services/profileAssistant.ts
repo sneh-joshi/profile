@@ -67,11 +67,12 @@ const RAW_ENTRIES: Omit<KnowledgeEntry, 'embedding'>[] = [
     matchText: 'Washington Post work built architected led CMS backend platform editorial publishing SaaS senior software engineer',
     answer:
       'At The Washington Post (Nov 2022 – Present) I led backend architecture across the CMS platform:\n\n' +
-      '▸ RAG-based semantic search — PostgreSQL + pgvector, hybrid vector + keyword retrieval over 10K+ content entities\n' +
-      '▸ Centralized reference graph service — depth-2 content relationship modeling\n' +
-      '▸ Pre-ingestion rule/validation engine — rules as data, not code\n' +
-      '▸ Stateless comment/suggestion services — Kafka event-driven decoupling\n' +
-      '▸ LLM answer generation — OpenAI APIs + LangChain layered on semantic retrieval',
+      '▸ RAG-based semantic search — PostgreSQL + pgvector, hybrid retrieval across 10K+ content entities, searchable in under 30 seconds\n' +
+      '▸ Centralized reference graph service — depth-2 modeling for 3–4 downstream services, 30% latency reduction\n' +
+      '▸ Rule/validation engine — 5,000+ req/min data ingestion checks with per-client personalization\n' +
+      '▸ Stateless comment/suggestion services — Kafka event-driven decoupling across 4+ services\n' +
+      '▸ LLM natural language querying — net-new product capability layered on existing RAG infrastructure\n' +
+      '▸ 50+ editorial clients served, 4,000+ RPM at 99.70% SLO, zero major outages over 12+ months',
   },
   {
     id: 'scale-slo',
@@ -79,10 +80,12 @@ const RAW_ENTRIES: Omit<KnowledgeEntry, 'embedding'>[] = [
     answer:
       'Production metrics at Washington Post:\n\n' +
       '▸ 4,000+ requests per minute processed\n' +
-      '▸ 99.70% SLO maintained\n' +
-      '▸ CI/CD deployment time: ~40 min → under 15 min\n' +
-      '▸ Onboarding workflows: hours → minutes\n' +
-      '▸ Monitoring via Datadog and AWS CloudWatch with full SLO ownership',
+      '▸ 99.70% SLO maintained — zero major outages over 12+ months\n' +
+      '▸ Rule/validation engine: 5,000+ req/min ingestion checks\n' +
+      '▸ RAG search: end-to-end searchable time under 30 seconds\n' +
+      '▸ Reference graph: 30% cross-service query latency reduction\n' +
+      '▸ Client onboarding: 4+ hours → under 10 minutes\n' +
+      '▸ CI/CD deployment: ~40 min → under 15 min across 5+ services',
   },
   {
     id: 'aws-cloud',
@@ -100,9 +103,9 @@ const RAW_ENTRIES: Omit<KnowledgeEntry, 'embedding'>[] = [
     matchText: 'skills languages TypeScript JavaScript Node.js Python Java Spring Boot React programming tech stack',
     answer:
       'Core skills:\n\n' +
-      '▸ Languages: TypeScript, Node.js, Python, Java, Spring Boot\n' +
+      '▸ Languages: TypeScript, Node.js, Python, Java, Go, SQL\n' +
       '▸ AI/Search: RAG, embeddings, pgvector, OpenAI APIs, LangChain, semantic retrieval\n' +
-      '▸ Cloud: AWS (Lambda, ECS, Step Functions, DynamoDB, S3, Keyspaces)\n' +
+      '▸ Cloud: AWS (Lambda, ECS/Fargate, Step Functions, DynamoDB, S3, Keyspaces), Docker, Terraform\n' +
       '▸ Databases: PostgreSQL, MySQL, DynamoDB, Oracle\n' +
       '▸ Frontend: React, Vite\n' +
       '▸ Observability: Datadog, CloudWatch',
@@ -119,9 +122,9 @@ const RAW_ENTRIES: Omit<KnowledgeEntry, 'embedding'>[] = [
     matchText: 'experience career history companies worked Freedom Mortgage JRI SMBC timeline years background',
     answer:
       '9+ years across three companies:\n\n' +
-      '▸ The Washington Post (Nov 2022–Present) — Senior Software Engineer, distributed systems & AI search\n' +
-      '▸ JRI-America / SMBC (Mar 2022–Nov 2022) — Software Engineer, data governance & enterprise data quality\n' +
-      '▸ Freedom Mortgage (Jun 2016–Mar 2022) — Software Engineer / BPM Developer, Java microservices, AWS Step Functions, OCR automation, RPA modernization',
+      '▸ The Washington Post (Nov 2022–Present) — Senior Software Engineer, distributed systems & AI search, 50+ editorial clients\n' +
+      '▸ JRI-America / SMBC (Mar 2022–Nov 2022) — Software Engineer, data governance & quality pipelines (20–25% improvement)\n' +
+      '▸ Freedom Mortgage (Jun 2016–Mar 2022) — Software Engineer / BPM Developer, Java microservices, AWS Step Functions, OCR pipeline ($1.00→$0.35/page), 500K+ annual loan applications',
   },
   {
     id: 'architecture-principles',
