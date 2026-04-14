@@ -348,7 +348,7 @@
 
 .profile__stats-row {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   background: var(--color-surface);
@@ -357,12 +357,13 @@
 }
 
 .profile__stat-item {
-  padding: 22px 24px;
+  padding: 22px 28px;
   border-right: 1px solid var(--color-border);
   position: relative;
   transition: background var(--transition);
 }
-.profile__stat-item:last-child { border-right: none; }
+.profile__stat-item:nth-child(3n) { border-right: none; }
+.profile__stat-item:nth-child(n+4) { border-top: 1px solid var(--color-border); }
 .profile__stat-item:hover { background: var(--color-surface-2); }
 
 /* accent left rule on hover */
@@ -409,6 +410,39 @@
   font-style: italic;
 }
 
+.profile__stat-track {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-border);
+}
+
+@keyframes barGrow {
+  from { width: 0; opacity: 0.4; }
+  to   { width: calc(var(--bar-progress, 0) * 100%); opacity: 1; }
+}
+
+.profile__stat-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-accent) 0%, rgba(91, 91, 214, 0.5) 100%);
+  border-radius: 0 2px 2px 0;
+  animation: barGrow 1.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  width: calc(var(--bar-progress, 0) * 100%);
+}
+
+.profile__stat-bar-note {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  color: var(--color-accent);
+  opacity: 0.7;
+  margin-top: 6px;
+  text-transform: lowercase;
+}
+
 /* ── Section headings ──────────────────────────────── */
 
 .profile__section {
@@ -434,11 +468,10 @@
   .profile__stats-row {
     grid-template-columns: repeat(2, 1fr);
   }
-  .profile__stat-item:nth-child(2) { border-right: none; }
-  .profile__stat-item:nth-child(3),
-  .profile__stat-item:nth-child(4) {
-    border-top: 1px solid var(--color-border);
-  }
+  .profile__stat-item:nth-child(3n) { border-right: revert; }
+  .profile__stat-item:nth-child(n+4) { border-top: revert; }
+  .profile__stat-item:nth-child(2n) { border-right: none; }
+  .profile__stat-item:nth-child(n+3) { border-top: 1px solid var(--color-border); }
 }
 
 @media (max-width: 560px) {

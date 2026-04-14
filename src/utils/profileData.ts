@@ -5,10 +5,9 @@ export const profileData: ProfileData = {
   title: 'Senior Software Engineer | Distributed Systems | AI Search',
   email: 'snehaljoshi09@hotmail.com',
   summary: [
-    'Senior Software Engineer specializing in scalable backend systems, distributed architectures, and AI-powered search platforms.',
-    'Strong expertise in high-throughput microservices, event-driven systems, Retrieval-Augmented Generation (RAG), and hybrid semantic search.',
-    'Designed and operated production systems processing 4,000+ RPM at 99.70% SLO on AWS infrastructure.',
-    'Track record of building resilient, decoupled architectures at enterprise scale for large SaaS platforms.',
+    'Senior Software Engineer with 9+ years of experience designing and delivering scalable, high-performance systems across the full stack.',
+    'Experienced in distributed architectures, event-driven systems, cloud-native services, and AI-powered features.',
+    'Consistent track record of owning complex problems end-to-end, shipping reliable software at scale, and driving measurable improvements in system performance and developer productivity.',
   ],
   skills: {
     'AI & Search Systems': [
@@ -75,13 +74,13 @@ export const profileData: ProfileData = {
         'Designed and implemented RAG-based semantic search using PostgreSQL + pgvector with hybrid (vector + keyword) retrieval across 10K+ content entities, reducing end-to-end searchable time to under 30 seconds.',
         'Architected centralized reference graph service (depth-2 modeling) used by 3–4 downstream services, reducing cross-service query latency by 30%.',
         'Designed and developed lightweight rule and validation engine performing data ingestion checks at 5,000+ req/min, reducing invalid content errors and enabling per-client personalization.',
-        'Re-architected comments and suggestions into reusable, stateless service modules enabling horizontal scaling and simplified service integration.',
+        'Re-architected comments and suggestions into reusable, stateless service modules enabling horizontal scaling and simplifying service integration.',
         'Implemented Kafka-based event-driven architecture to decouple 4+ services, eliminating synchronous bottlenecks and enabling independent scaling.',
-        'Engineered microservices processing 4,000+ requests per minute at 99.70% SLO with zero major service outages over 12+ months.',
+        'Engineered and maintained microservices processing 4,000+ requests per minute at 99.70% SLO with zero major service outages over 12+ months.',
         'Reduced client onboarding workflows from 4+ hours to under 10 minutes through distributed system redesign.',
         'Optimized CI/CD pipelines reducing deployment time from ~40 minutes to under 15 minutes across 5+ services.',
         'Designed and shipped LLM-based natural language querying over structured content as a net-new product capability, layered on existing RAG retrieval infrastructure.',
-        'Implemented comprehensive monitoring, alerting, and SLO tracking using Datadog and AWS CloudWatch.',
+        'Implemented comprehensive monitoring, alerting, and SLO tracking using Datadog and AWS CloudWatch, supporting 12+ months of uninterrupted production stability.',
       ],
     },
     {
@@ -100,7 +99,7 @@ export const profileData: ProfileData = {
       period: 'Jun 2016 – Mar 2022',
       bullets: [
         'Built backend microservices using Java, Spring Boot, and AWS Step Functions for enterprise workflow automation supporting 500K+ annual loan applications.',
-        'Led a team of 3 engineers to architect and deliver an in-house Data Extraction Pipeline using AWS Textract and Tesseract, reducing per-page processing cost from $1.00 (vendor) to $0.35 in-house across 10+ document types.',
+        'Led a team of 3 engineers to architect and deliver an in-house Data Extraction Pipeline using AWS Textract and Tesseract, reducing per-page processing cost from $1.00 (vendor) to $0.35 in-house — delivering high ROI at scale across 10+ document types.',
         'Modernized legacy enterprise workflows by integrating RPA solutions and building React UI applications on IBM BAW, eliminating 3 legacy systems.',
         'Designed RESTful APIs and database schemas (Oracle, MySQL) supporting high-throughput mortgage processing pipelines.',
       ],

@@ -14,6 +14,8 @@ interface StatDef {
   format: (n: number) => string
   label: string
   detail: string
+  progress: number  // 0–1, drives the progress bar
+  barNote: string   // explains what the bar measures
 }
 
 interface GlanceItem { icon: string; key: string; val: string; open?: boolean }
@@ -29,33 +31,73 @@ const GLANCE: GlanceItem[] = [
 
 const STATS: StatDef[] = [
   {
-    countTo: 4000, decimals: 0,
+    countTo: 5000, decimals: 0,
     format: (n) => `${Math.floor(n).toLocaleString()}+`,
     label: 'req / min',
     detail: 'peak throughput',
+    progress: 0.92,
+    barNote: 'of throughput capacity',
   },
   {
     countTo: 99.70, decimals: 2,
     format: (n) => `${n.toFixed(2)}%`,
     label: 'SLO',
     detail: 'uptime reliability',
+    progress: 0.997,
+    barNote: 'uptime achieved',
+  },
+  {
+    countTo: 50, decimals: 0,
+    format: (n) => `${Math.floor(n)}+`,
+    label: 'clients',
+    detail: 'editorial clients served',
+    progress: 0.83,
+    barNote: 'org-wide adoption',
   },
   {
     countTo: 10, decimals: 0,
     format: (n) => `${Math.floor(n)}K+`,
     label: 'entities',
     detail: 'hybrid-search indexed',
+    progress: 0.75,
+    barNote: 'of corpus indexed',
+  },
+  {
+    countTo: 30, decimals: 0,
+    format: (n) => `<${Math.floor(n)}s`,
+    label: 'search',
+    detail: 'end-to-end searchable time',
+    progress: 0.88,
+    barNote: 'vs. 3+ min baseline',
   },
   {
     countTo: 15, decimals: 0,
     format: (n) => `${Math.floor(n)} min`,
     label: 'CI/CD',
     detail: 'deploy time, was ~40',
+    progress: 0.625,
+    barNote: '62% time saved',
   },
 ]
 
-function StatItem({ stat, active, delay }: { stat: StatDef; active: boolean; delay: number }) {
+function StatItem({ stat, delay }: { stat: StatDef; delay: number }) {
+  const [active, setActive] = useState(false)
+  const [animKey, setAnimKey] = useState(0)
   const [val, setVal] = useState(0)
+  const ref = useRef<HTMLDivElement>(null)
+
+  // Trigger independently when this card enters the viewport
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setActive(true); obs.disconnect() } },
+      { threshold: 0.5 }
+    )
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [])
+
   useEffect(() => {
     if (!active) return
     const wait = setTimeout(() => {
@@ -72,11 +114,28 @@ function StatItem({ stat, active, delay }: { stat: StatDef; active: boolean; del
     return () => clearTimeout(wait)
   }, [active, stat.countTo, stat.decimals, delay])
 
+  const handleMouseEnter = () => {
+    if (active) setAnimKey((k) => k + 1)
+  }
+
   return (
-    <div className="profile__stat-item">
+    <div ref={ref} className="profile__stat-item" onMouseEnter={handleMouseEnter}>
       <span className="profile__stat-num">{stat.format(val)}</span>
       <span className="profile__stat-label">{stat.label}</span>
       <span className="profile__stat-detail">{stat.detail}</span>
+      <div className="profile__stat-track">
+        {active && (
+          <div
+            key={animKey}
+            className="profile__stat-bar"
+            style={{
+              '--bar-progress': stat.progress,
+              animationDelay: animKey === 0 ? `${delay}ms` : '0ms',
+            } as CSSProperties}
+          />
+        )}
+      </div>
+      <span className="profile__stat-bar-note">{stat.barNote}</span>
     </div>
   )
 }
@@ -84,9 +143,7 @@ function StatItem({ stat, active, delay }: { stat: StatDef; active: boolean; del
 export function Profile() {
   const { name, email, skills, experience, education } = profileData
   const containerRef = useRef<HTMLDivElement>(null)
-  const statsRef = useRef<HTMLDivElement>(null)
   const ctaRef = useRef<HTMLAnchorElement>(null)
-  const [statsActive, setStatsActive] = useState(false)
 
   // Scroll reveal
   useEffect(() => {
@@ -106,19 +163,7 @@ export function Profile() {
     return () => obs.disconnect()
   }, [])
 
-  // Stats count-up trigger
-  useEffect(() => {
-    const el = statsRef.current
-    if (!el) return
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) { setStatsActive(true); obs.disconnect() }
-      },
-      { threshold: 0.25 },
-    )
-    obs.observe(el)
-    return () => obs.disconnect()
-  }, [])
+  // Stats count-up trigger — now per-card via IntersectionObserver inside StatItem
 
   // Magnetic CTA button
   useEffect(() => {
@@ -218,13 +263,12 @@ export function Profile() {
           {/* Stats bar — full width */}
           <div
             className="profile__stats-wrap profile__animate"
-            ref={statsRef}
             style={{ '--i': 4 } as CSSProperties}
           >
             <p className="profile__stats-source">Production — The Washington Post, 2022–Present</p>
             <div className="profile__stats-row">
               {STATS.map((stat, i) => (
-                <StatItem key={stat.label} stat={stat} active={statsActive} delay={i * 120} />
+                <StatItem key={stat.label} stat={stat} delay={i * 120} />
               ))}
             </div>
           </div>
