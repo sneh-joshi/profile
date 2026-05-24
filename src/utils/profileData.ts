@@ -68,7 +68,7 @@ export const profileData: ProfileData = {
     {
       company: 'The Washington Post',
       role: 'Senior Software Engineer',
-      period: 'Nov 2022 – Present',
+      period: 'Nov 2022 – May 2026',
       bullets: [
         'Architected backend platforms powering a large-scale SaaS CMS ecosystem serving 50+ editorial clients.',
         'Designed and implemented RAG-based semantic search using PostgreSQL + pgvector with hybrid (vector + keyword) retrieval across 10K+ content entities, reducing end-to-end searchable time to under 30 seconds.',
