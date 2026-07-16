@@ -21,9 +21,9 @@ interface StatDef {
 interface GlanceItem { icon: string; key: string; val: string; open?: boolean }
 
 const GLANCE: GlanceItem[] = [
-  { icon: '◈', key: 'Currently',  val: 'The Washington Post'                 },
+  { icon: '◈', key: 'Recently',  val: 'The Washington Post'                 },
   { icon: '▸', key: 'Role',       val: 'Senior Software Engineer'            },
-  { icon: '◉', key: 'Experience', val: '9 years'                             },
+  { icon: '◉', key: 'Experience', val: '10 years'                             },
   { icon: '⬡', key: 'Core Stack', val: 'TypeScript · Node.js · AWS · Python' },
   { icon: '◎', key: 'Focus',      val: 'AI Systems · Cloud Architecture'    },
   { icon: '✦', key: 'Status',     val: 'Open to opportunities', open: true   },
